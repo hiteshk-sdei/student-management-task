@@ -41,6 +41,7 @@ const ResultForm = () => {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const { message, error, courseList, studentList } = useSelector((state) => {
     return {
@@ -74,9 +75,13 @@ const ResultForm = () => {
   const handleNotification = (message, error) => {
     setShowMessage(message || error);
     dispatch(resetResult());
+    if (error) {
+      setErrorMessage(true);
+    }
     setIsLoading(false);
     setTimeout(() => {
       setShowMessage(null);
+      setErrorMessage(true);
     }, 2000);
   };
 
@@ -88,10 +93,11 @@ const ResultForm = () => {
   const handleBack = () => {
     navigate("/results");
   };
+  
   return (
     <>
       {showMessage && (
-        <Alert severity="success" variant="filled">
+        <Alert severity={errorMessage ? "error" : "success"} variant="filled">
           {showMessage}
         </Alert>
       )}

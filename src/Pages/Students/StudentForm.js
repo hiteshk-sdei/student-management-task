@@ -35,9 +35,9 @@ const formInitialValues = {
 const StudentForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const params = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const { message, error } = useSelector((state) => {
     return {
@@ -68,10 +68,14 @@ const StudentForm = () => {
 
   const handleNotification = (message, error) => {
     setShowMessage(message || error);
+    if (error) {
+      setErrorMessage(true);
+    }
     dispatch(resetStudent());
     setIsLoading(false);
     setTimeout(() => {
       setShowMessage(null);
+      setErrorMessage(false);
     }, 2000);
   };
 
@@ -82,7 +86,7 @@ const StudentForm = () => {
   return (
     <>
       {showMessage && (
-        <Alert severity="success" variant="filled">
+        <Alert severity={errorMessage ? "error" : "success"} variant="filled">
           {showMessage}
         </Alert>
       )}
