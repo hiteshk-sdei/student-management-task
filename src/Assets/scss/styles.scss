@@ -1,0 +1,223 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+// Global styles
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--gray-bg);
+}
+
+.MuiButton-root.MuiButtonBase-root {
+  padding: 10px 35px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.MuiButtonBase-root.MuiButton-containedPrimary {
+  background-color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-color-dark);
+  }
+}
+
+.MuiButtonBase-root.MuiButton-outlinedPrimary {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+
+  &:hover {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+}
+
+.MuiTypography-root {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+:root {
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --black-color-2: #222222;
+  --primary-color: #5A64DC;
+  --primary-color-dark: #4650cb;
+  --primary-light-bg: #f3f4ff;
+  --gray-bg: #f7f7fa;
+  --gray-light-1: #ededed;
+  --red-primary: #ff4242;
+  --red-bg-light: #d32f2f29;
+}
+
+.MuiAlert-filledSuccess {
+  position: fixed;
+  right: 5px;
+  z-index: 9999;
+  width: 280px;
+  top: 69px;
+}
+
+// Table styles
+.MuiTableContainer-root {
+  box-shadow: none !important;
+  border: 1px solid var(--gray-light-1);
+
+  .MuiTable-root {
+    .MuiTableHead-root {
+      .MuiTableCell-root {
+        background-color: var(--primary-light-bg);
+        font-weight: 600;
+        color: var(--black-color);
+      }
+    }
+
+    .MuiTableCell-root {
+      font-family: 'Poppins', sans-serif !important;
+      padding: 10px !important;
+      border-color: var(--gray-light-1);
+
+      .MuiIconButton-colorError {
+        background-color: var(--red-bg-light);
+        color: var(--red-primary);
+      }
+    }
+  }
+}
+
+// Form styles
+.MuiPaper-root.form-card-ui {
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.12);
+}
+
+// Datepicker styles
+.react-datepicker-wrapper {
+  width: 100%;
+  input {
+    font: inherit;
+    margin: 0;
+    display: block;
+    padding: 14px;
+    width: -webkit-fill-available;
+  }
+}
+.invalid-feedback {
+  color: var(--red-primary);
+  font-size: 12px;
+}
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+// Global styles
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--gray-bg);
+}
+
+.MuiButton-root.MuiButtonBase-root {
+  padding: 10px 35px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.MuiButtonBase-root.MuiButton-containedPrimary {
+  background-color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-color-dark);
+  }
+}
+
+.MuiButtonBase-root.MuiButton-outlinedPrimary {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+
+  &:hover {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+}
+
+.MuiTypography-root {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+:root {
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --black-color-2: #222222;
+  --primary-color: #5A64DC;
+  --primary-color-dark: #4650cb;
+  --primary-light-bg: #f3f4ff;
+  --gray-bg: #f7f7fa;
+  --gray-light-1: #ededed;
+  --brown-bg: #F8F4F0;
+  --red-primary: #ff4242;
+  --red-bg-light: #d32f2f29;
+}
+
+.MuiAlert-filledSuccess {
+  position: fixed;
+  right: 5px;
+  z-index: 9999;
+  width: 280px;
+  top: 69px;
+}
+
+// Table styles
+.MuiTableContainer-root {
+  box-shadow: none !important;
+  border: 1px solid var(--gray-light-1);
+
+  .MuiTable-root {
+    .MuiTableHead-root {
+      .MuiTableCell-root {
+        background-color: var(--primary-light-bg);
+        font-weight: 600;
+        color: var(--black-color);
+      }
+    }
+
+    .MuiTableCell-root {
+      font-family: 'Poppins', sans-serif !important;
+      padding: 10px !important;
+      border-color: var(--gray-light-1);
+
+      .MuiIconButton-colorError {
+        background-color: var(--red-bg-light);
+        color: var(--red-primary);
+      }
+    }
+  }
+}
+
+// Form styles
+.MuiPaper-root.form-card-ui {
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.12);
+}
+
+// Dashboard styles
+.MuiPaper-root.welcome-card {
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: none;
+  background: var(--brown-bg);
+
+  .MuiTypography-root.welcome-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .MuiTypography-root.welcome-text {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+}
