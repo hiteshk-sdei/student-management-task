@@ -1,40 +1,36 @@
-import React, { useState, useEffect } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
+  Alert,
+  Grid,
+  IconButton,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
-  Grid,
   Typography,
-  Alert,
-  IconButton,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteResult, getResultList } from "../../Api/ResultApi";
+import ConfirmationModal from "../../Components/Modal/ConfirmationModal";
 import TableNoRecordFound from "../../Components/Table/TableNoRecordFound";
 import { resetResult } from "../../Redux/Slice/ResultSlice";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { useDispatch, useSelector } from "react-redux";
-import ConfirmationModal from "../../Components/Modal/ConfirmationModal";
 import { TIMEOUT_TIME } from "../../Utilis/Utilis";
-import { deleteResult, getResultList } from "../../Api/ResultApi";
 
 const ResultListing = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [showMessage, setShowMessage] = useState(null);
-  const { message, error, resultList, courseList, studentList } = useSelector(
+  const { message, error, resultList } = useSelector(
     (state) => {
       return {
         resultList: state.result.resultList,
         message: state?.result?.message,
         error: state?.result?.error,
-        courseList: state.course.courseList,
-        studentList: state.student.studentList,
       };
     }
   );
@@ -108,12 +104,10 @@ const ResultListing = () => {
                       {index + 1}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {/* {courseList?.find((course)=>course.id===result.course)?.name} */}
                       {result.course?.courseName}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {/* {studentList?.find((student)=>student.id===result.student)?.name} */}
-                      {result.student?.firstName}
+                      {result.student?.firstName} {result.student?.familyName}
                     </TableCell>
                     <TableCell component="th" scope="row">
                       {result.score}

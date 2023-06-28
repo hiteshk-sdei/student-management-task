@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from "react";
 import {
-  Paper,
-  Grid,
-  Typography,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  FormHelperText,
   Alert,
+  FormControl,
+  FormHelperText,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  Typography
 } from "@mui/material";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import Button from "../../Components/FormElements/Button";
-import { generateId } from "../../Utilis/Utilis";
+import { Form, Formik } from "formik";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { resetResult } from "../../Redux/Slice/ResultSlice";
-import PageLoading from "../../Components/PageLoading/PageLoading";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 import { getCourseList } from "../../Api/CourseApi";
-import { getStudentList } from "../../Api/StudentApi";
 import { addResult } from "../../Api/ResultApi";
+import { getStudentList } from "../../Api/StudentApi";
+import Button from "../../Components/FormElements/Button";
+import PageLoading from "../../Components/PageLoading/PageLoading";
+import { resetResult } from "../../Redux/Slice/ResultSlice";
 
 const validationSchema = Yup.object().shape({
   grade: Yup.string().required("Please select grade"),
@@ -38,7 +36,6 @@ const formInitialValues = {
 const ResultForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const params = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -51,12 +48,9 @@ const ResultForm = () => {
       studentList: state?.student?.studentList,
     };
   });
-  const [initialValues, setInitialValues] = useState(formInitialValues);
 
   const handeSave = ({ grade, course, student }, { resetForm }) => {
     setIsLoading(true);
-    let id = params?.id;
-    if (!id) id = generateId();
     const payload = {
       studentId: student,
       courseId: course,
@@ -93,7 +87,7 @@ const ResultForm = () => {
   const handleBack = () => {
     navigate("/results");
   };
-  
+
   return (
     <>
       {showMessage && (
@@ -113,7 +107,7 @@ const ResultForm = () => {
       <Paper className="form-card-ui">
         <Formik
           enableReinitialize
-          initialValues={initialValues}
+          initialValues={formInitialValues}
           validationSchema={validationSchema}
           onSubmit={handeSave}
         >
@@ -121,8 +115,6 @@ const ResultForm = () => {
             errors,
             touched,
             values,
-            handleChange,
-            handleBlur,
             setFieldValue,
           }) => (
             <Form>
@@ -198,6 +190,8 @@ const ResultForm = () => {
                       <MenuItem value="A">A</MenuItem>
                       <MenuItem value="B">B</MenuItem>
                       <MenuItem value="C">C</MenuItem>
+                      <MenuItem value="D">D</MenuItem>
+                      <MenuItem value="E">E</MenuItem>
                       <MenuItem value="F">F</MenuItem>
                     </Select>
                     <FormHelperText>

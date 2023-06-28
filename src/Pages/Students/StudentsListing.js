@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
+  Alert,
+  Grid,
+  IconButton,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
-  Grid,
   Typography,
-  IconButton,
-  Alert,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TableNoRecordFound from "../../Components/Table/TableNoRecordFound";
-import ConfirmationModal from "../../Components/Modal/ConfirmationModal";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { TIMEOUT_TIME } from "../../Utilis/Utilis";
-import { resetStudent } from "../../Redux/Slice/StudentSlice";
+import { useNavigate } from "react-router-dom";
 import { deleteStudent, getStudentList } from "../../Api/StudentApi";
+import ConfirmationModal from "../../Components/Modal/ConfirmationModal";
+import TableNoRecordFound from "../../Components/Table/TableNoRecordFound";
+import { resetStudent } from "../../Redux/Slice/StudentSlice";
+import { TIMEOUT_TIME } from "../../Utilis/Utilis";
 
 const StudentsListing = () => {
   const navigate = useNavigate();

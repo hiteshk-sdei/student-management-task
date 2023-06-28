@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Paper, Grid, Typography, TextField, Alert } from "@mui/material";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+import { Alert, Grid, Paper, TextField, Typography } from "@mui/material";
+import { Form, Formik } from "formik";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { resetCourse } from "../../Redux/Slice/CourseSlice";
+import * as Yup from "yup";
+import { addCourse } from "../../Api/CourseApi";
 import Button from "../../Components/FormElements/Button";
 import PageLoading from "../../Components/PageLoading/PageLoading";
-import { addCourse } from "../../Api/CourseApi";
+import { resetCourse } from "../../Redux/Slice/CourseSlice";
 
 const validationSchema = Yup.object().shape({
   courseName: Yup.string().required("Course Name is required"),
@@ -91,7 +91,6 @@ const CourseForm = () => {
             values,
             handleChange,
             handleBlur,
-            setFieldValue,
           }) => (
             <Form>
               <Grid container spacing={2}>

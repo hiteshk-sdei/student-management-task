@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Components/Layout";
-import ResultListing from "../Pages/Results/ResultListing";
-import ResultForm from '../Pages/Results/ResultForm';
-import CourseLisitng from '../Pages/Courses/CourseLisitng';
 import CourseForm from '../Pages/Courses/CourseForm';
+import CourseLisitng from '../Pages/Courses/CourseLisitng';
 import Home from '../Pages/Home/Home';
-import StudentsListing from '../Pages/Students/StudentsListing';
+import ResultForm from '../Pages/Results/ResultForm';
+import ResultListing from "../Pages/Results/ResultListing";
 import StudentForm from '../Pages/Students/StudentForm';
+import StudentsListing from '../Pages/Students/StudentsListing';
 
 const PublicRoutes=()=>{
     return(

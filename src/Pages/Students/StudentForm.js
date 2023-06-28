@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Paper, Grid, Typography, TextField, Alert } from "@mui/material";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+import { Alert, Grid, Paper, TextField, Typography } from "@mui/material";
+import { Form, Formik } from "formik";
+import React, { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import { addStudent } from "../../Api/StudentApi";
 import Button from "../../Components/FormElements/Button";
 import PageLoading from "../../Components/PageLoading/PageLoading";
 import { resetStudent } from "../../Redux/Slice/StudentSlice";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { addStudent } from "../../Api/StudentApi";
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("FirstName is required"),
@@ -45,7 +45,6 @@ const StudentForm = () => {
       error: state?.student?.error,
     };
   });
-  const [initialValues, setInitialValues] = useState(formInitialValues);
 
   const handeSave = ({ firstName, familyName, email, dob }, { resetForm }) => {
     setIsLoading(true);
@@ -102,7 +101,7 @@ const StudentForm = () => {
       <Paper className="form-card-ui">
         <Formik
           enableReinitialize
-          initialValues={initialValues}
+          initialValues={formInitialValues}
           validationSchema={validationSchema}
           onSubmit={handeSave}
         >
@@ -178,7 +177,6 @@ const StudentForm = () => {
                     <div className="invalid-feedback">{errors.dob}</div>
                   )}
                 </Grid>
-
                 <Grid item xs={12} sx={{ marginBottom: 1 }} textAlign="right">
                   <Button
                     variant="outlined"

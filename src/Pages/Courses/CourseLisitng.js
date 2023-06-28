@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
+  Alert,
+  Grid,
+  IconButton,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
-  Grid,
   Typography,
-  IconButton,
-  Alert,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TableNoRecordFound from "../../Components/Table/TableNoRecordFound";
-import ConfirmationModal from "../../Components/Modal/ConfirmationModal";
-import { resetCourse } from "../../Redux/Slice/CourseSlice";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { TIMEOUT_TIME } from "../../Utilis/Utilis";
 import { deleteCourse, getCourseList } from "../../Api/CourseApi";
+import ConfirmationModal from "../../Components/Modal/ConfirmationModal";
+import TableNoRecordFound from "../../Components/Table/TableNoRecordFound";
+import { resetCourse } from "../../Redux/Slice/CourseSlice";
+import { TIMEOUT_TIME } from "../../Utilis/Utilis";
 
 const CourseListing = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
